@@ -4,8 +4,8 @@ set AutoSelectMemRanges auto
 set programoptions.eraseb4program true
 set poweroptions.powerenable false
 
-hwtool sk
+hwtool sk -p
 
-program dist/default/production/knock_lock.X.production.hex
+program knock_lock.X/dist/default/production/knock_lock.X.production.hex
 
 quit

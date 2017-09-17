@@ -48,7 +48,7 @@
                          Main application
  */
 void main(void)
-{  
+{
 
     // initialize the device
     SYSTEM_Initialize();
@@ -66,6 +66,9 @@ void main(void)
     {
         USBDeviceTasks();
         // Add your application code
+
+        TRISDbits.TRISD3 = 0;
+        LATDbits.LATD3 = 1;
     }
 }
 /**
