@@ -1,0 +1,11 @@
+device PIC32MM0256GPM064
+
+set AutoSelectMemRanges auto
+set programoptions.eraseb4program true
+set poweroptions.powerenable false
+
+hwtool sk -p
+
+program knock_lock.X/dist/default/production/knock_lock.X.production.hex
+
+quit
