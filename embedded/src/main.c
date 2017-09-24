@@ -1,11 +1,8 @@
-#include "bsp/xc.h"
+#include "oscillator/oscillator.h"
 
 int main() {
-    for (;;) {
-        TRISDbits.TRISD3 = 0;
-        LATDbits.LATD3 = 1;
+    Oscillator_config(OSCILLATOR_CONFIG_USB);
 
-        TRISCbits.TRISC13 = 0;
-        LATCbits.LATC13 = 1;
+    for (;;) {
     }
 }

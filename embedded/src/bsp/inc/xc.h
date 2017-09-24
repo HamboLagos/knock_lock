@@ -8,8 +8,8 @@ extern "C" {
 #ifndef UNIT_TEST
 #include <xc.h>
 #else
-#include "stubs/xc_stub.h"
-#include "stubs/sfr_stub.h"
+#include "bsp/inc/stubs/xc_stub.h"
+#include "bsp/inc/stubs/sfr_stub.h"
 #endif
 
 #ifdef __cplusplus
