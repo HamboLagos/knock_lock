@@ -15,19 +15,15 @@ extern "C" {
 
 static inline void Syskey_lock() {
     unsigned isr_state = Interrupts_disable();
-
     SYSKEY = LOCK_KEY;
-
     Interrupts_restore(isr_state);
 }
 
 static inline void Syskey_unlock() {
     unsigned isr_state = Interrupts_disable();
-
     Syskey_lock();
     SYSKEY = UNLOCK_KEY0;
     SYSKEY = UNLOCK_KEY1;
-
     Interrupts_restore(isr_state);
 }
 

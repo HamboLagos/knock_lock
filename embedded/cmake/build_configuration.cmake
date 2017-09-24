@@ -8,8 +8,14 @@ else()
     set(CMAKE_BUILD_TYPE ${BUILD_TYPE})
 endif()
 
+set(ARCH_OPTIONS "32MM0256GPM064")
+set(ARCH "32MM0256GPM064" CACHE STRING "Select Arch: {${ARCH_OPTIONS}}")
+if(NOT ARCH MATCHES ${ARCH_OPTIONS})
+    message(FATAL_ERROR "Arch \"${ARCH}\" not valid, try -DARCH={${ARCH_OPTIONS}}")
+endif()
+
 message(STATUS
 "Building Image with the following configuration:
-    * Build Type:\t\"${CMAKE_BUILD_TYPE}\""
+    * Build Type:\t\"${CMAKE_BUILD_TYPE}\"
+    * Arch:\t\t\"${ARCH}\""
 )
-

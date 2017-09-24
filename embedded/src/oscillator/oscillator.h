@@ -6,11 +6,17 @@
 extern "C" {
 #endif
 
+#include "inc/definitions.h"
+
 typedef enum {
-    OSCILLATOR_CONFIG_USB
+    OSCILLATOR_CONFIG_LOW_POWER,
+    OSCILLATOR_CONFIG_USB,
+    OSCILLATOR_CONFIG_COUNT
 } Oscillator_Config;
 
-void Oscillator_config(Oscillator_Config config);
+void Oscillator_init();
+void Oscillator_configure(Oscillator_Config config);
+Hz Oscillator_getClockFrequency();
 
 #ifdef __cplusplus
 }

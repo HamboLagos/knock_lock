@@ -1,0 +1,14 @@
+#ifndef _OSCILLATOR_HAL_H_IN_
+#define _OSCILLATOR_HAL_H_IN_
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#include "oscillator/hal/oscillator_hal_@ARCH@.h"
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* ifndef _OSCILLATOR_HAL_H_IN_ */

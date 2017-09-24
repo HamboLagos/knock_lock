@@ -1,0 +1,75 @@
+/** \file */
+#ifndef _OSCILLATOR_HAL_32MM0256GPM064_H_
+#define _OSCILLATOR_HAL_32MM0256GPM064_H_
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#include "inc/definitions.h"
+
+#define FRC_FREQUENCY ((Hz)8000000) ///< 8Mhz
+
+typedef enum {
+    OSCILLATOR_HAL_CLOCK_SOURCE_FRC  = 0b000,
+    OSCILLATOR_HAL_CLOCK_SOURCE_SPLL = 0b001,
+    OSCILLATOR_HAL_CLOCK_SOURCE_POSC = 0b010,
+    OSCILLATOR_HAL_CLOCK_SOURCE_SOSC = 0b100,
+    OSCILLATOR_HAL_CLOCK_SOURCE_LPRC = 0b101,
+} Oscillator_HAL_ClockSource;
+
+typedef enum {
+    OSCILLATOR_HAL_FRC_DIVISOR_1X   = 0b000,
+    OSCILLATOR_HAL_FRC_DIVISOR_2X   = 0b001,
+    OSCILLATOR_HAL_FRC_DIVISOR_4X   = 0b010,
+    OSCILLATOR_HAL_FRC_DIVISOR_8X   = 0b011,
+    OSCILLATOR_HAL_FRC_DIVISOR_16X  = 0b100,
+    OSCILLATOR_HAL_FRC_DIVISOR_32X  = 0b101,
+    OSCILLATOR_HAL_FRC_DIVISOR_64X  = 0b110,
+    OSCILLATOR_HAL_FRC_DIVISOR_256X = 0b111,
+} Oscillator_HAL_FRCDivisor;
+
+typedef enum {
+    OSCILLATOR_HAL_PLL_CLOCK_SOURCE_FRC  = 0b1,
+    OSCILLATOR_HAL_PLL_CLOCK_SOURCE_POSC = 0b0,
+}Oscillator_HAL_PLLClockSource;
+
+typedef enum {
+    OSCILLATOR_HAL_PLL_INPUT_MULTIPLIER_2X  = 0b0000000,
+    OSCILLATOR_HAL_PLL_INPUT_MULTIPLIER_3X  = 0b0000001,
+    OSCILLATOR_HAL_PLL_INPUT_MULTIPLIER_4X  = 0b0000010,
+    OSCILLATOR_HAL_PLL_INPUT_MULTIPLIER_6X  = 0b0000011,
+    OSCILLATOR_HAL_PLL_INPUT_MULTIPLIER_8X  = 0b0000100,
+    OSCILLATOR_HAL_PLL_INPUT_MULTIPLIER_12X = 0b0000101,
+    OSCILLATOR_HAL_PLL_INPUT_MULTIPLIER_24X = 0b0000110,
+} Oscillator_HAL_PLLInputMultiplier;
+
+typedef enum {
+    OSCILLATOR_HAL_PLL_OUTPUT_DIVISOR_1X   = 0b000,
+    OSCILLATOR_HAL_PLL_OUTPUT_DIVISOR_2X   = 0b001,
+    OSCILLATOR_HAL_PLL_OUTPUT_DIVISOR_4X   = 0b010,
+    OSCILLATOR_HAL_PLL_OUTPUT_DIVISOR_8X   = 0b011,
+    OSCILLATOR_HAL_PLL_OUTPUT_DIVISOR_16X  = 0b100,
+    OSCILLATOR_HAL_PLL_OUTPUT_DIVISOR_32X  = 0b101,
+    OSCILLATOR_HAL_PLL_OUTPUT_DIVISOR_64X  = 0b110,
+    OSCILLATOR_PLL_OUTPUT_DIVISOR_256X = 0b111,
+} Oscillator_HAL_PLLOutputDivisor;
+
+typedef enum {
+    OSCILLATOR_HAL_ACTIVE_TUNE_SOURCE_SOSC = 0b0,
+    OSCILLATOR_HAL_ACTIVE_TUNE_SOURCE_USB = 0b1,
+    OSCILLATOR_HAL_ACTIVE_TUNE_SOURCE_OFF,
+} Oscillator_HAL_ActiveTuneSource;
+
+void Oscillator_HAL_setClockSource(Oscillator_HAL_ClockSource clock_source);
+void Oscillator_HAL_setFRCDivisor(Oscillator_HAL_FRCDivisor frc_divisor);
+void Oscillator_HAL_PLLConfigure(Oscillator_HAL_PLLClockSource clock_source,
+                                 Oscillator_HAL_PLLInputMultiplier input_multiplier,
+                                 Oscillator_HAL_PLLOutputDivisor output_divisor);
+void Oscillator_HAL_setActiveTuneSource(Oscillator_HAL_ActiveTuneSource tune_source);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* ifndef _OSCILLATOR_HAL_32MM0256GPM064_H_ */
