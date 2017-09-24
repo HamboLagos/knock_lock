@@ -1,5 +1,6 @@
 # built files
 build/
+.ycm_extra_conf.py
 
 # Standard C Project .gitignore
 # Prerequisites

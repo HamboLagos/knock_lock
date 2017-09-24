@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 
-mkdir -p build && pushd build
+mkdir -p build && cd build
 cmake .. $@ && make -j8
-popd

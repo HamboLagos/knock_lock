@@ -1,3 +1,11 @@
+#include "bsp/xc.h"
+
 int main() {
-    return 0;
+    for (;;) {
+        TRISDbits.TRISD3 = 0;
+        LATDbits.LATD3 = 1;
+
+        TRISCbits.TRISC13 = 0;
+        LATCbits.LATC13 = 1;
+    }
 }
